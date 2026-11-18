@@ -14,7 +14,7 @@ var alive = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,7 +70,6 @@ func _on_body_shape_entered(body_rid: RID, body: Node, _body_shape_index: int, _
 	if tile_data == null:
 		return
 	if tile_data.get_collision_polygons_count(1) > 0:
-		print("kill 1")
 		alive = false
 		get_tree().reload_current_scene.call_deferred()
 	
@@ -82,6 +81,5 @@ func _on_body_entered(body: Node) -> void:
 	random_sfx.pitch_scale = randf_range(0.8,1.2)
 	random_sfx.play()
 	if alive and "hurts" in body:
-		print("kill 2")
 		alive = false
 		get_tree().reload_current_scene.call_deferred()
