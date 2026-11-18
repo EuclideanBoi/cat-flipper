@@ -29,4 +29,4 @@ func _on_body_entered(body: Node) -> void:
 			freeze = true
 			$SFX.play()
 			await get_tree().create_timer(0.2).timeout
-			get_tree().reload_current_scene()
+			get_tree().reload_current_scene.call_deferred()
