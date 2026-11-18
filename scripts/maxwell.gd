@@ -70,6 +70,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node, _body_shape_index: int, _
 	if tile_data == null:
 		return
 	if tile_data.get_collision_polygons_count(1) > 0:
+		print("kill 1")
 		get_tree().reload_current_scene.call_deferred()
 	
 	
@@ -80,4 +81,5 @@ func _on_body_entered(body: Node) -> void:
 	random_sfx.pitch_scale = randf_range(0.8,1.2)
 	random_sfx.play()
 	if "hurts" in body:
+		print("kill 2")
 		get_tree().reload_current_scene.call_deferred()
