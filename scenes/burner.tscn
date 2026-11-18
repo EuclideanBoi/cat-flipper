@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dur1ftyqam5qh"]
+
+[ext_resource type="Script" uid="uid://bnvep5fvpinh2" path="res://burner.gd" id="1_q8h83"]
+[ext_resource type="Texture2D" uid="uid://8wlkdin75bx2" path="res://sprites/burnerwarning.png" id="2_1xpes"]
+[ext_resource type="Texture2D" uid="uid://c4skuq52ufwuk" path="res://sprites/burner2.png" id="3_6toop"]
+[ext_resource type="Texture2D" uid="uid://d4dphwxnfb84t" path="res://sprites/burner3.png" id="4_8ie0o"]
+[ext_resource type="Texture2D" uid="uid://dqupmitii1uo5" path="res://sprites/burner1.png" id="5_hjowd"]
+[ext_resource type="AudioStream" uid="uid://nm8ha4ty36bl" path="res://sounds/FlamethrowerSFX.mp3" id="6_1xpes"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltcvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1xpes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1xpes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6toop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8ie0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6toop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8ie0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6toop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8ie0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6toop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8ie0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1xpes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hjowd")
+}],
+"loop": 0,
+"name": &"burning",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hjowd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tg3ej"]
+radius = 8.5
+height = 113.0
+
+[node name="burner" type="RigidBody2D" unique_id=2120401404]
+texture_filter = 1
+collision_layer = 0
+can_sleep = false
+freeze = true
+freeze_mode = 1
+max_contacts_reported = 2
+script = ExtResource("1_q8h83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1940517594]
+sprite_frames = SubResource("SpriteFrames_ltcvw")
+animation = &"burning"
+frame = 11
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=95798959]
+position = Vector2(3.5, 4.5)
+shape = SubResource("CapsuleShape2D_tg3ej")
+disabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1110120008]
+stream = ExtResource("6_1xpes")
+volume_db = 2.916

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dfmmhktop0evs"]
+
+[ext_resource type="Script" uid="uid://b17ts8s30ylo4" path="res://sawblade.gd" id="1_gfjls"]
+[ext_resource type="Texture2D" uid="uid://bug2kiobk2y01" path="res://sprites/sawblade.png" id="2_mbvjg"]
+[ext_resource type="AudioStream" uid="uid://bd6js46mccjnt" path="res://sounds/sawblade.mp3" id="3_l44n6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ltcvw"]
+radius = 40.012497
+
+[node name="minisaw" type="RigidBody2D" unique_id=2087643807]
+collision_layer = 0
+can_sleep = false
+freeze = true
+max_contacts_reported = 100
+script = ExtResource("1_gfjls")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000672963]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_mbvjg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1365813498]
+stream = ExtResource("3_l44n6")
+pitch_scale = 1.4
+autoplay = true
+parameters/looping = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=585029226]
+shape = SubResource("CircleShape2D_ltcvw")

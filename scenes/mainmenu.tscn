@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c7ly38d3u30uq"]
+
+[ext_resource type="Texture2D" uid="uid://blyiq56l76y12" path="res://sprites/cat flipper title.png" id="1_r3g3c"]
+[ext_resource type="Texture2D" uid="uid://dvlsgox4torn4" path="res://sprites/playbutton.png" id="2_3vvtq"]
+[ext_resource type="Texture2D" uid="uid://uu8ntjlbtpwx" path="res://sprites/canny cat.webp" id="2_7yvfd"]
+[ext_resource type="Script" uid="uid://b5wlataxgj3tq" path="res://scripts/mainmenubutton.gd" id="3_s5g8n"]
+[ext_resource type="AudioStream" uid="uid://3tnik67jl4lr" path="res://sounds/Cartoon Splat sound effect.mp3" id="4_3vvtq"]
+[ext_resource type="PackedScene" uid="uid://cl0ss4h3r15qt" path="res://scenes/mouse_object.tscn" id="5_s5g8n"]
+
+[node name="mainmenu" type="Control" unique_id=889881145]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2070462829]
+texture_filter = 1
+layout_mode = 0
+offset_left = 186.0
+offset_top = 32.0
+offset_right = 506.0
+offset_bottom = 212.0
+mouse_filter = 2
+texture = ExtResource("1_r3g3c")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1247969250]
+z_index = -10
+texture_filter = 1
+layout_mode = 0
+offset_left = 241.0
+offset_top = 130.0
+offset_right = 432.0
+offset_bottom = 242.0
+mouse_filter = 2
+texture = ExtResource("2_7yvfd")
+expand_mode = 1
+flip_v = true
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1299838036]
+texture_filter = 1
+layout_mode = 0
+offset_left = 281.0
+offset_top = 268.0
+offset_right = 401.0
+offset_bottom = 328.0
+texture_normal = ExtResource("2_3vvtq")
+script = ExtResource("3_s5g8n")
+
+[node name="Splat" type="AudioStreamPlayer" parent="TextureButton" unique_id=1202583347]
+stream = ExtResource("4_3vvtq")
+
+[node name="MouseObject" parent="." unique_id=558364552 instance=ExtResource("5_s5g8n")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=458321886]
+z_index = -11
+layout_mode = 0
+offset_left = -28.0
+offset_top = -40.0
+offset_right = 709.0
+offset_bottom = 405.0
+mouse_filter = 2
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

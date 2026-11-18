@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cmahna3ejaaml"]
+
+[ext_resource type="Script" uid="uid://dmb0u4qivqwdt" path="res://scripts/maxwell.gd" id="1_44tlc"]
+[ext_resource type="Texture2D" uid="uid://de6pomuun4luo" path="res://sprites/maxwell.png" id="2_vb2je"]
+[ext_resource type="AudioStream" uid="uid://c0tppk4lvtqre" path="res://sounds/punch1.mp3" id="4_6lamv"]
+[ext_resource type="AudioStream" uid="uid://bd7ua1d8yqxwo" path="res://sounds/punch2.mp3" id="5_mvrbk"]
+[ext_resource type="AudioStream" uid="uid://cek6fcb38m02d" path="res://sounds/punch3.mp3" id="6_sjf6j"]
+[ext_resource type="AudioStream" uid="uid://4gshkipgci1d" path="res://sounds/Grab Sound Effect.mp3" id="7_6lamv"]
+[ext_resource type="AudioStream" uid="uid://b3lcaj42l36dp" path="res://sounds/punch4.mp3" id="7_w4v0w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltcvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vb2je")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Maxwell" type="RigidBody2D" unique_id=1367994686]
+modulate = Color(2.3133948, 2.3133948, 2.3133948, 1)
+input_pickable = true
+mass = 20.0
+can_sleep = false
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_44tlc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1916958966]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ltcvw")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=897490169]
+node_a = NodePath("..")
+softness = 0.1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=837786301]
+polygon = PackedVector2Array(39, -32, 48, -21, 48, -8, 43, 0, 41, 16, 31, 36, -1, 36, -26, 29, -41, 24, -47, 10, -47, -7, -38, -23, -25, -30, -14, -31, 6, -27, 3, -32, 19, -30, 43, -36, 43, -32)
+
+[node name="SFX" type="Node2D" parent="." unique_id=1779578127]
+
+[node name="Punch1" type="AudioStreamPlayer2D" parent="SFX" unique_id=985004521]
+stream = ExtResource("4_6lamv")
+
+[node name="Punch2" type="AudioStreamPlayer2D" parent="SFX" unique_id=805739420]
+stream = ExtResource("5_mvrbk")
+
+[node name="Punch3" type="AudioStreamPlayer2D" parent="SFX" unique_id=314692835]
+stream = ExtResource("6_sjf6j")
+
+[node name="Punch4" type="AudioStreamPlayer2D" parent="SFX" unique_id=253667235]
+stream = ExtResource("7_w4v0w")
+
+[node name="GrabSFX" type="AudioStreamPlayer2D" parent="." unique_id=1268798069]
+stream = ExtResource("7_6lamv")
+volume_db = 3.888
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

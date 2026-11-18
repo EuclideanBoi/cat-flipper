@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://drd8u5luwj45k"]
+
+[ext_resource type="Script" uid="uid://bk0no6buby7hd" path="res://scripts/button.gd" id="1_1bdt2"]
+[ext_resource type="Texture2D" uid="uid://r158xo0weiyv" path="res://sprites/button1.png" id="2_8m7bo"]
+[ext_resource type="Texture2D" uid="uid://d2atu76hdmjh6" path="res://sprites/button2.png" id="3_t81cg"]
+[ext_resource type="AudioStream" uid="uid://djqsjvs1rcjbw" path="res://sounds/buttondown.mp3" id="4_is61r"]
+[ext_resource type="AudioStream" uid="uid://kee1djpe24od" path="res://sounds/buttonup.mp3" id="5_iw4ej"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltcvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8m7bo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t81cg")
+}],
+"loop": 1,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltcvw"]
+size = Vector2(70, 7)
+
+[node name="button" type="RigidBody2D" unique_id=1046117298]
+texture_filter = 1
+collision_layer = 0
+can_sleep = false
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_1bdt2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1762657303]
+sprite_frames = SubResource("SpriteFrames_ltcvw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=159782958]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_ltcvw")
+
+[node name="ButtonDown" type="AudioStreamPlayer2D" parent="." unique_id=1257228159]
+stream = ExtResource("4_is61r")
+volume_db = 15.0
+
+[node name="ButtonUp" type="AudioStreamPlayer2D" parent="." unique_id=1989097976]
+stream = ExtResource("5_iw4ej")
+volume_db = 15.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

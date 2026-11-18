@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://behfcudm8qtbg"]
+
+[ext_resource type="Script" uid="uid://cfukbgixgttcu" path="res://scripts/moving_box.gd" id="1_q61og"]
+[ext_resource type="Texture2D" uid="uid://dasfsdmyipobg" path="res://sprites/movingbox.png" id="2_xobg1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltcvw"]
+size = Vector2(64, 64)
+
+[node name="MovingBox" type="AnimatableBody2D" unique_id=269328711]
+texture_filter = 1
+script = ExtResource("1_q61og")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1486942074]
+texture = ExtResource("2_xobg1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1467508802]
+shape = SubResource("RectangleShape2D_ltcvw")

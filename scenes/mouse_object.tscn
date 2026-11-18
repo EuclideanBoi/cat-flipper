@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cl0ss4h3r15qt"]
+
+[ext_resource type="Script" uid="uid://bpunw3t4ymbb5" path="res://scripts/mouse_object.gd" id="1_mp36o"]
+[ext_resource type="Texture2D" uid="uid://dogye31geiu5l" path="res://sprites/handclosed.png" id="2_vv7br"]
+[ext_resource type="Texture2D" uid="uid://ecwssspt6l7a" path="res://sprites/handbig1.png" id="3_38mn6"]
+[ext_resource type="Texture2D" uid="uid://n81fhsdm037r" path="res://sprites/handbig2.png" id="4_dklsn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ltcvw"]
+radius = 4.1231055
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltcvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vv7br")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_38mn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dklsn")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 1.0
+}]
+
+[node name="MouseObject" type="StaticBody2D" unique_id=558364552]
+z_index = 1000
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_mp36o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2138660045]
+shape = SubResource("CircleShape2D_ltcvw")
+
+[node name="MouseSprite" type="AnimatedSprite2D" parent="." unique_id=1212806146]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ltcvw")
+animation = &"closed"

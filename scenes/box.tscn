@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://crg7fimi6q4qw"]
+
+[ext_resource type="Script" uid="uid://biowxng5yft1x" path="res://scripts/box.gd" id="1_c2ln5"]
+[ext_resource type="Texture2D" uid="uid://dl4r22hnun10x" path="res://sprites/box.png" id="2_telwu"]
+[ext_resource type="AudioStream" uid="uid://4gshkipgci1d" path="res://sounds/Grab Sound Effect.mp3" id="3_brpd5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltcvw"]
+size = Vector2(48, 48)
+
+[node name="box" type="RigidBody2D" unique_id=418794489]
+texture_filter = 1
+input_pickable = true
+mass = 20.0
+can_sleep = false
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_c2ln5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=368800199]
+texture = ExtResource("2_telwu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1016598069]
+shape = SubResource("RectangleShape2D_ltcvw")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=863441145]
+node_a = NodePath("..")
+softness = 0.1
+
+[node name="GrabSFX" type="AudioStreamPlayer2D" parent="." unique_id=1425254297]
+stream = ExtResource("3_brpd5")
+volume_db = 3.888
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

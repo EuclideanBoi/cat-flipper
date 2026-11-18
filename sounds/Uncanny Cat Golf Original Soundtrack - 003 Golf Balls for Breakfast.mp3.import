@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xr2mi4htsp0s"
+path="res://.godot/imported/Uncanny Cat Golf Original Soundtrack - 003 Golf Balls for Breakfast.mp3-a3f5db2ba5352f2ea46e91342a22f6ac.mp3str"
+
+[deps]
+
+source_file="res://sounds/Uncanny Cat Golf Original Soundtrack - 003 Golf Balls for Breakfast.mp3"
+dest_files=["res://.godot/imported/Uncanny Cat Golf Original Soundtrack - 003 Golf Balls for Breakfast.mp3-a3f5db2ba5352f2ea46e91342a22f6ac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

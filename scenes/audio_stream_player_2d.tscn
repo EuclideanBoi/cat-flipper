@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://1x6d04laxm6b"]
+
+[ext_resource type="AudioStream" uid="uid://xr2mi4htsp0s" path="res://sounds/Uncanny Cat Golf Original Soundtrack - 003 Golf Balls for Breakfast.mp3" id="1_1udxr"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=1475707798]
+stream = ExtResource("1_1udxr")
+autoplay = true
+parameters/looping = true

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dx5w41eop0erc"]
+
+[ext_resource type="Script" uid="uid://b53yosggwqliy" path="res://scripts/closeddoor.gd" id="1_30sld"]
+[ext_resource type="Texture2D" uid="uid://diaho21duir8r" path="res://sprites/lockedoor.png" id="2_ql41k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltcvw"]
+size = Vector2(80, 32)
+
+[node name="LockedDoor" type="StaticBody2D" unique_id=759878744]
+texture_filter = 1
+script = ExtResource("1_30sld")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1495692791]
+texture = ExtResource("2_ql41k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1212871458]
+shape = SubResource("RectangleShape2D_ltcvw")

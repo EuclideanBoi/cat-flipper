@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c6qsfeh73pbca"]
+
+[ext_resource type="Script" uid="uid://fgamlpt73ndj" path="res://scripts/hyrax.gd" id="1_5bsbw"]
+[ext_resource type="Texture2D" uid="uid://o1pmpy44a3fh" path="res://sprites/thing with fur-export.png" id="2_i3c2j"]
+[ext_resource type="Texture2D" uid="uid://cw0rx0lbds5tf" path="res://sprites/hyrax jumpscarfe.jpg" id="3_fkhsg"]
+[ext_resource type="AudioStream" uid="uid://bdulqi4qt4dxv" path="res://sounds/hyraxscream.mp3" id="4_eqour"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tg3ej"]
+radius = 26.0
+height = 72.0
+
+[node name="hyrax" type="RigidBody2D" unique_id=1900221444]
+texture_filter = 1
+mass = 10.0
+can_sleep = false
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_5bsbw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=609429775]
+texture = ExtResource("2_i3c2j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1081297833]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tg3ej")
+
+[node name="Jumpscare" type="Sprite2D" parent="." unique_id=1478257301]
+visible = false
+z_index = 100
+position = Vector2(323, 160.49998)
+scale = Vector2(1.5855422, 0.79702306)
+texture = ExtResource("3_fkhsg")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=483102691]
+stream = ExtResource("4_eqour")
+volume_db = 24.0
+pitch_scale = 1.03
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

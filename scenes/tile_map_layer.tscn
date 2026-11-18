@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cweuhu0jebknn"]
+
+[ext_resource type="Texture2D" uid="uid://qd66177xwfel" path="res://sprites/tilemap.png" id="1_wipo8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_okeva"]
+texture = ExtResource("1_wipo8")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/z_index = 1
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 3.956892, 8, 4.136751, 8, 8, -8, 8)
+4:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 2.8777409, 8, 3.057598, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 3.956892, 8, 4.136751, 8, 8, -8, 8)
+8:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-1.0791531, 5.3957634, 0.71943474, -1.7985859, 2.1583042, 5.215904, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_ltcvw"]
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_okeva")
+
+[node name="TileMapLayer" type="TileMapLayer" unique_id=2134309951]
+texture_filter = 1
+tile_set = SubResource("TileSet_ltcvw")
+physics_quadrant_size = 1

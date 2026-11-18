@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://7xoeee0brqub"]
+
+[ext_resource type="Script" uid="uid://bffhbe765ut6r" path="res://scripts/level_title.gd" id="1_3cwpm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lbspy"]
+font_size = 32
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelTitle" type="Control" unique_id=1671923276]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3cwpm")
+
+[node name="Label" type="Label" parent="." unique_id=1839364130]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 290.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 34
+text = "nil"
+label_settings = SubResource("LabelSettings_lbspy")

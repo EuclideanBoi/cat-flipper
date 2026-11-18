@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://tyibrxcbq8lv"]
+
+[ext_resource type="Script" uid="uid://qbrdxdhaebev" path="res://scripts/win_condition.gd" id="1_tgmud"]
+[ext_resource type="PackedScene" uid="uid://myewbvpecvs1" path="res://scenes/confetti.tscn" id="2_srdfj"]
+[ext_resource type="Texture2D" uid="uid://cv7awgdg7jqpi" path="res://sprites/flipped1.png" id="2_vogw0"]
+[ext_resource type="AudioStream" uid="uid://ynhetsblxi52" path="res://sounds/25 confetti Sound effect.mp3" id="3_ivcor"]
+[ext_resource type="Texture2D" uid="uid://b5anneqw16shr" path="res://sprites/nextbutton1.png" id="4_hsjxb"]
+[ext_resource type="Texture2D" uid="uid://b56p65fxo5tld" path="res://sprites/nextbutton2.png" id="5_ivcor"]
+[ext_resource type="AudioStream" uid="uid://3tnik67jl4lr" path="res://sounds/Cartoon Splat sound effect.mp3" id="5_n714a"]
+[ext_resource type="Texture2D" uid="uid://dqmndf3noteff" path="res://sprites/cat thumpsup.webp" id="8_b0shr"]
+
+[node name="WinCondition" type="Node2D" unique_id=64538587 node_paths=PackedStringArray("cats")]
+z_index = 200
+texture_filter = 1
+script = ExtResource("1_tgmud")
+cats = [null]
+confettiscene = ExtResource("2_srdfj")
+
+[node name="ConfettiSFX" type="AudioStreamPlayer" parent="." unique_id=523578516]
+stream = ExtResource("3_ivcor")
+
+[node name="WinTexture" type="TextureRect" parent="." unique_id=2047975634]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vogw0")
+
+[node name="CatThumpsup" type="Sprite2D" parent="WinTexture" unique_id=1546729655]
+position = Vector2(330, 221)
+scale = Vector2(0.995, 0.8709678)
+texture = ExtResource("8_b0shr")
+
+[node name="SpriteSandbox" parent="." unique_id=1623747453 instance=ExtResource("2_srdfj")]
+position = Vector2(326, 353)
+
+[node name="NextButton" type="TextureButton" parent="." unique_id=174501130]
+visible = false
+z_index = 1
+offset_left = 282.0
+offset_top = 291.0
+offset_right = 368.0
+offset_bottom = 333.0
+texture_normal = ExtResource("4_hsjxb")
+texture_hover = ExtResource("5_ivcor")
+
+[node name="Splat" type="AudioStreamPlayer" parent="." unique_id=366807958]
+stream = ExtResource("5_n714a")
+
+[connection signal="pressed" from="NextButton" to="." method="_on_texture_button_pressed"]
