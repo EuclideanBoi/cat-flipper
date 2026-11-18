@@ -59,7 +59,7 @@ func _on_mouse_exited() -> void:
 	mouseentered = false
 
 func _on_body_shape_entered(body_rid: RID, body: Node, _body_shape_index: int, _local_shape_index: int) -> void:
-	if dead:
+	if not alive:
 		return
 	if not (body is TileMapLayer):
 		return
